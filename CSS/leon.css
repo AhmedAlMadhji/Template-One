@@ -1,6 +1,6 @@
 /* Start Variables */
 :root {
-    --main-color: #0a8a7d;
+    --main-color: #10CAB7;
     --backgroundColor: #f6f6f6;
     --secondary-color: #2c4755;
     --section-padding: 60px;
@@ -23,12 +23,9 @@
 }
 
 .special-heading+p {
-    text-transform: capitalize;
-    font-size: 20px;
     text-align: center;
-    color: #797979;
     margin-top: -30px;
-    line-height: 1.15;
+    color: #797979;
 }
 
 @media (max-width: 767px) {
@@ -39,6 +36,12 @@
     .special-heading+p {
         margin-top: -20px;
     }
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
 }
 
 /* End Components */
@@ -56,6 +59,7 @@ html {
 
 body {
     font-family: "Work Sans", sans-serif;
+    text-transform: capitalize;
 }
 
 
@@ -105,7 +109,7 @@ body {
 /* Start Header  */
 header {
     padding: 20px;
-    background-color: var(--backgroundColor);
+    background-color: white;
 }
 
 header .container {
@@ -120,6 +124,7 @@ header .Logo {
 
 header nav {
     position: relative;
+    cursor: pointer;
 }
 
 header nav .icon {
@@ -133,10 +138,54 @@ header nav .icon:hover span:nth-child(2) {
     width: 100%;
 }
 
+header .Links .icon span {
+    animation-name: moving;
+}
+
+header .Links span:nth-of-type(2) {
+    animation-name: moving2;
+}
+
+header .Links:hover .icon span {
+    animation-play-state: running;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes moving {
+    0% {
+        width: 100%;
+    }
+
+    50% {
+        width: 60%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes moving2 {
+    0% {
+        width: 60%;
+    }
+
+    50% {
+        width: 100%;
+    }
+
+    100% {
+        width: 60%;
+    }
+}
+
 header nav .icon span {
     background-color: #333;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
     height: 2px;
+    animation-name: move;
 }
 
 header nav .icon span:first-child {
@@ -208,10 +257,11 @@ header .Links ul li:not(:last-child) a {
 
 /* Start Main */
 
-/* Start Section Intro Text */
+/* Start Section landing  */
 .landing {
-    background-image: url("../images/background.jpg");
+    background-image: url("../images/landing.jpg");
     background-size: cover;
+    background-repeat: no-repeat;
     height: calc(100vh - 64px);
     position: relative;
     margin-bottom: 60px;
@@ -240,19 +290,13 @@ header .Links ul li:not(:last-child) a {
     line-height: var(--line-height);
 }
 
-/* End Section Intro Text */
+/* End Section landing */
 
 /* Start Section Features */
 .features {
     padding-top: var(--section-padding);
     padding-bottom: var(--section-padding);
     background-color: var(--backgroundColor);
-}
-
-.features .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 20px;
 }
 
 .features .feat {
@@ -286,9 +330,6 @@ header .Links ul li:not(:last-child) a {
 }
 
 .services .services-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 30px;
     margin-top: 100px;
 }
 
@@ -361,9 +402,6 @@ header .Links ul li:not(:last-child) a {
 }
 
 .portfolio .portfolio-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 30px;
     margin-top: 80px;
 }
 
@@ -513,6 +551,7 @@ header .Links ul li:not(:last-child) a {
 }
 
 @media (max-width:767px) {
+
     .contact .info .label,
     .contact .info .link {
         font-size: 25px;
@@ -533,19 +572,56 @@ header .Links ul li:not(:last-child) a {
 
 /* End Contact  */
 
+/*      start up        */
+.up {
+    position: sticky;
+    top: 90vh;
+    text-align: right;
+    margin-top: 20px;
+    margin-right: 20px;
+    z-index: 999
+}
 
+.up a {
+    padding: 30px 18px 10px;
+    background-color: var(--main-color);
+}
+
+.up a i {
+    font-size: 40px;
+    color: white;
+}
+
+@media (max-width:991px) {
+    .up {
+        padding-top: 46px;
+        top: 80vh;
+    }
+
+    .up a {
+        padding: 16px 12px 10px;
+    }
+
+    .up a i {
+        font-size: 27px;
+    }
+}
+
+/*      end up          */
 /* End Main */
 
 /* Start footer */
 footer {
     background-color: var(--secondary-color);
-    color:white;
+    color: white;
     padding: 30px 10px;
     font-size: 18px;
     text-align: center;
 }
+
 footer span {
     font-weight: bold;
     color: var(--main-color);
 }
+
 /* End footer */
